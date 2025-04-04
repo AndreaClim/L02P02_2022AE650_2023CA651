@@ -21,11 +21,17 @@
             <tr>
                 <td>@autor.id</td>
                 <td>@autor.autor</td>
+
                 <td>
-                    @Html.ActionLink("Seleccionar", "ListaLibros", "Libros", new { idAutor = autor.id }, new { @class = "btn btn-primary" })
+                    
+                    <a href="@Url.Action("Prototipo02", "Libros", new { id = autor.id })" class="btn btn-primary">
+                        Seleccionar
+                    </a>
                 </td>
             </tr>
         }
+
+       
     </tbody>
 </table>
 
