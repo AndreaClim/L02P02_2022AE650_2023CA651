@@ -1,5 +1,7 @@
-
+﻿
 @model List<L02P02_2022AE650_2023CA651.Models.libros>
+
+<h1>Libros del Autor</h1>
 
 <table class="table">
     <thead>
@@ -8,6 +10,8 @@
             <th>Nombre del Libro</th>
             <th>Descripción</th>
             <th>Precio</th>
+            <th>Acción</th>
+
         </tr>
     </thead>
     <tbody>
@@ -17,11 +21,11 @@
                 <td>@libro.id</td>
                 <td>@libro.nombre</td>
                 <td>@libro.descripcion</td>
-
+                <td>@libro.precio</td>
                 <td>
-                    @Html.ActionLink("Seleccionar", "ListaComentarios", "Comentarios", new { idLibro = libro.id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Seleccionar", "Prototipo03", "Comentarios", new { id_libro = libro.id }, new { @class = "btn btn-primary" })
                 </td>
             </tr>
         }
     </tbody>
-</table>
+    </table>

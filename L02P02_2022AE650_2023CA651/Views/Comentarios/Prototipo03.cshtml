@@ -21,7 +21,7 @@
 </table>
 
 <h3>Agregar Comentario</h3>
-<form method="post" action="@Url.Action("Prototipo04", "Comentarios")">
+<form method="post" action="@Url.Action("AgregarComentario", "Comentarios")">
     <input type="hidden" name="id_libro" value="@ViewData["id_libro"]" />
     <div class="form-group">
         <label for="comentario">Comentario</label>
@@ -29,4 +29,3 @@
     </div>
     <button type="submit" class="btn btn-primary">Guardar Comentario</button>
 </form>
-
