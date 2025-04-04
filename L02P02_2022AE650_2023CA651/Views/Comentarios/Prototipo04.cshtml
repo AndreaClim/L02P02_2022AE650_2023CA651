@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Confirmación de Comentario";
+}
+
+<h2>@ViewData["Titulo"]</h2>
+
+@if (ViewData["Comentario"] != null)
+{
+    <div>
+        <h3>Comentario agregado</h3>
+        <p><strong>Libro:</strong> @ViewData["LibroNombre"]</p>
+        <p><strong>Comentario:</strong> @ViewData["Comentario"]</p>
+        <p><strong>Fecha:</strong> @ViewData["FechaComentario"]</p>
+    </div>
+}
+
+<p>@ViewData["Mensaje"]</p>
+
