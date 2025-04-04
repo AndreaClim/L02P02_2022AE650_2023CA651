@@ -21,11 +21,12 @@
 </table>
 
 <h3>Agregar Comentario</h3>
-<form method="post" action="@Url.Action("AgregarComentario", "Comentarios")">
-    <input type="hidden" name="id_libro" value="@ViewData["id_libro"]" />
+@using (Html.BeginForm("AgregarComentario", "Comentarios", FormMethod.Post))
+{
+    @Html.Hidden("id_libro", ViewData["id_libro"])
     <div class="form-group">
-        <label for="comentario">Comentario</label>
+        <label for="comentarios">Comentario</label>
         <textarea name="comentarios" class="form-control" rows="4" required></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Guardar Comentario</button>
-</form>
+    <button type="submit" class="btn btn-primary mt-2">Guardar Comentario</button>
+}
