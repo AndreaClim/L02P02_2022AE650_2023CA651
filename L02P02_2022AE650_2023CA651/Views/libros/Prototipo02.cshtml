@@ -1,0 +1,56 @@
+﻿@model IEnumerable<L02P02_2022AE650_2023CA651.Models.libros>
+
+@{
+    ViewData["Title"] = "Listado de Libros por Autor";
+    Layout = "_Layout";
+}
+
+<h2>Listado de libros del autor: @ViewData["NombreAutor"]</h2>
+<br />
+
+@if (!Model.Any())
+{
+    <div class="alert alert-warning">Este autor no tiene libros registrados.</div>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.First().nombre)</th>
+                <th>@Html.DisplayNameFor(m => m.First().descripcion)</th>
+                <th>Imagen</th>
+                <th>@Html.DisplayNameFor(m => m.First().precio)</th>
+                <th>@Html.DisplayNameFor(m => m.First().estado)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var libro in Model)
+            {
+                <tr>
+                    <td>@libro.nombre</td>
+                    <td>@libro.descripcion</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(libro.url_imagen))
+                        {
+                            <img src="@libro.url_imagen" alt="Imagen del libro" width="80" height="100" />
+                        }
+                        else
+                        {
+                            <span>Sin imagen</span>
+                        }
+                    </td>
+                    <td>$@libro.precio.ToString("F2")</td>
+                    <td>@libro.estado</td>
+                    <td>
+                        @using (Html.BeginForm("VerComentarios", "Libros", new { idLibro = libro.id }, FormMethod.Post))
+                        {
+                            <button type="submit" class="btn btn-info">Ver Comentarios</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
